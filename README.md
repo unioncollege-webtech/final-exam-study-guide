@@ -47,6 +47,7 @@ The DELETE method requests that the origin server delete the resource identified
 
 Specified in [RFC 5789](http://tools.ietf.org/html/rfc5789), the PATCH method requests that a set of changes described in the request entity be applied to the resource identified by the Request-URI.
 
+
 ### [HTTP Status Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10)
 
 HTTP statuses indicate the result of the attempt to understand and satisfy the request. The status consists of a Status-Code and a short textual description known as the Reason-Phrase. The Status-Code is a 3-digit integer. The first digit of the Status-Code defines the class of response. The last two digits do not have any categorization role. There are 5 values for the first digit:
@@ -108,3 +109,14 @@ The server encountered an unexpected condition which prevented it from fulfillin
 #### [503 Service Unavailable](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.5.4)
 
 The server is currently unable to handle the request due to a temporary overloading or maintenance of the server. 
+
+
+### Message Headers
+
+[HTTP header fields](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14) consist of a name followed by a colon (":") and the field value. There are four different categories of header fields:
+
+- **general**: have general applicability for both request and response messages, but which do not apply to the entity being transferred
+- **request**: allow the client to pass additional information about the request, and about the client itself, to the server. These fields act as request modifiers, with semantics equivalent to the parameters on a programming language method invocation.
+- **response**: allow the server to pass additional information about the response which cannot be placed in the Status- Line. These header fields give information about the server and about further access to the resource identified by the Request-URI.
+- **entity**: define metainformation about the entity-body or, if no body is present, about the resource identified by the request.
+

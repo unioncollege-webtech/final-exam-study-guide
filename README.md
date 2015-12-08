@@ -2,6 +2,585 @@
 
 The final exam in Web Technologies covers basic JavaScript language features as well as important <abbr title="HyperText Transfer Protocol">HTTP</abbr> topics such as methods, status codes, and headers.
 
+* [JavaScript](#javascript)
+* [HyperText Transfer Protocol](#hypertext-transfer-protocol)
+
+
+
+## JavaScript
+
+### Data Types
+
+JavaScript has 6 primitive data types:
+
+- **string** - a sequence of characters, `"Howdy"` or `'Howdy'`
+- **number** - any numeric value, `42`, or `3.141592`
+- **boolean** -  `true` and `false`
+- **null** -  a special keyword denoting a `null` value
+- **undefined** - a value automatically assigned to variables that don't yet have a value
+- **symbol** - new in ECMAScript 6
+
+And one complex data type:
+
+- object - containers that have properties, and often methods, constructors, and prototypes
+
+### Variable Declarations
+
+The `var` keyword is used to declare a variable:
+
+```
+var counter;
+```
+
+A variable declaration can optionally initialize the variable with a value.
+
+```
+var counter = 0;
+```
+
+### Strings
+
+A [string literal] is zero or more characters enclosed in double (") or single
+(') quotation marks. There is no separate "char" type for individual characters.
+
+```
+var doubleQuoted = "This is a double-quoted string";
+var singleQuoted = 'This uses single quotes';
+var singleChar = 'a';
+```
+
+### String Concatenation
+
+The [Addition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Addition)
+(`+`) operator is used for string concatenation.
+
+```
+var hello = "Hello";
+console.log( hello + " world" );
+// => "Hello world"
+```
+
+###  String Properties and Methods
+
+Strings have methods and properties defined on the 
+[`String.prototype`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype#Description) object:
+
+- `.length`: A property which reflects the number of characters in the string
+```
+"hello".length // => 5
+```
+
+### Numbers
+
+Numbers represent numeric values. Note that there is only *one* number type,
+represented in [64-bit double-precision floating-point format](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
+
+```
+var answer = 42;
+var pi = 3.14159;
+```
+
+### Arithmetic Operators
+
+JavaScript defines several arithmetic operators which take numerical values (either literals or variables) as their operands and return a single numerical value.
+
+- `+` Addition operator
+  ```
+  3 + 4 // => 7
+  ```
+- `-` Subtraction operator
+  ```
+  3 - 4 // => -1
+  ```
+- `*` Multiplication operator
+  ```
+  3 * 4 // => 12
+  ```
+- `/` Division operator
+  ```
+  3 / 4 // => 0.75
+  ```
+- `%` Remainder operator
+  ```
+  4 % 3 // => 1
+  ```
+### Assignment Operators
+
+- `=` Assignment operator: assigns a value to its left operand based on the value of its right operand.
+  ```
+  var x = 10;     // The variable `x` now has the value `10`
+  console.log(x);
+  // => 10
+  ```
+
+- `+=` Addition assignment: adds the value of the right operand to a variable and 
+  assigns the result to the variable
+  ```
+  var x = 10;
+  x += 5;    // Equivalent to: x = x + 5
+  ```
+
+- `-=` Subtraction assignment
+- `*=` Multiplication assignment
+- `/=` Division assignment 
+- `%=` Modulus assignment 
+
+[Assignment operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators#Addition_assignment_2)
+on MDN
+
+### Increment Operators
+
+- `++` Increment operator: increase a reference’s value by one and return the new value
+  - Postfix: Return the original value **before** incrementing
+    ```
+    var a = 3;
+    var b = a++;     // b: 3, a: 4
+    ```
+  - Prefix: Return the new (incremented) value
+    ```
+    var a = 3;
+    var b = ++a;     // b: 4, a: 4
+    ```
+
+### Operators: Decrement
+
+- `--` Decrement operator: decrease a reference’s value by one and return the new value
+  - Postfix: Return the original value **before** decrementing
+    ```
+    var a = 3;
+    var b = a--;     // b: 3, a: 2
+    ```
+  - Prefix: Return the new (decremented) value
+    ```
+    var a = 3;
+    var b = --a;     // b: 2, a: 2
+    ```
+
+### Math
+
+The global [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+object has utilities for dealing with numbers.
+
+- `Math.round(x)` : Returns the value of a number rounded to the nearest integer.
+
+```
+Math.round(3.14)   // =>  3
+Math.round(1.618)  // =>  2
+Math.round(-3.14)  // => -3
+Math.round(-1.618) // => -2
+```
+
+### Booleans
+
+Booleans represent one of two values: `true` or `false`. The keyword `true`
+(lowercase) and `false` (lowercase) are the only two boolean types.
+
+```
+var answer = true;
+var differentAnswer = false;
+```
+
+### Equality operators
+
+- `==` Equality
+- `===` Strict/identity equality
+- `!=` Inequality
+- `!==` Strict/identity inequality
+
+[Equality operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Equality_operators)
+
+### Equality operator
+
+```js
+x == y
+```
+
+The equality operator **converts** the operands if they are not of the same type, then applies strict comparison. 
+
+```js
+console.log(1 == 1);      // => true
+console.log(1 == '1');    // => true
+console.log(true == '1'); // => true
+console.log(0 == 0);      // => true
+console.log(0 == '0');    // => true
+console.log(0 == '');     // => true
+console.log(false == '0');// => true
+var x = {};
+var y = x;
+console.log(x == y);       // => true
+```
+
+### Inequality operator
+
+```js
+x != y
+```
+
+The inequality operator **converts** operands if they are not of the same type, then returns true if the operands are **not** equal.
+
+```js
+console.log(1 != 1);      // => false
+console.log(1 != '1');    // => false
+console.log(true != '1'); // => false
+console.log(1 != 0);      // => true
+console.log('apples' != 'oranges'); // => true
+var x = {};
+var y = {};
+console.log(x != y);      // => true
+```
+
+### Identity / strict equality operator
+
+```js
+x === y
+```
+
+The identity operator returns true if the operands are strictly equal (see above) with no type conversion.
+
+```js
+console.log(1 === 1);      // => true
+console.log(1 === '1');    // => false
+console.log(true === '1'); // => false
+console.log(0 === 0);      // => true
+console.log(0 === '0');    // => false
+console.log(0 === '');     // => false
+console.log(false === '0');// => false
+var x = {};
+var y = x;
+console.log(x === y);       // => true
+```
+
+### Identity / strict inequality operator
+
+```js
+x !== y
+```
+
+The non-identity operator returns true if the operands are not equal and/or not of the same type.
+
+```js
+console.log(1 !== '1') // true
+console.log(1 !== 2)   // true
+```
+
+### Relational operators
+
+- `>` Greater than
+  ```
+  3 > 4 // => false
+  4 > 4 // => false
+  5 > 4 // => true
+  ```
+- `>=` Greater than or equal
+  ```
+  3 >= 4 // => false
+  4 >= 4 // => true
+  5 >= 4 // => true
+  ```
+- `<` Less than operator
+  ```
+  3 < 4 // => true
+  4 < 4 // => false
+  5 < 4 // => false
+  ```
+- `<=` Less than or equal
+  ```
+  3 <= 4 // => true
+  4 <= 4 // => true
+  5 <= 4 // => false
+  ```
+
+[Relational operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators#Relational_operators)
+
+### If statement
+
+```js
+if (condition)
+   statement1
+else               // optional `else`
+   statement2
+```
+
+Executes `statement1` if a `condition` is true. If `condition` is false, statement2 is executed.
+
+[if...else statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+
+### Conditional (ternary) operator
+
+```js
+condition ? expression1 : expression2
+```
+
+Return `expression1` if `condition` is true, otherwise return `expression2`
+
+[Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+### Logical operators
+
+- `&&` &nbsp; Logical AND
+- `||` &nbsp; Logical OR
+- `!` &nbsp; &nbsp; Logical NOT
+
+[Logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators)
+
+### Truthiness
+
+JavaScript coerces primitives and objects to a Boolean when a Boolean is expected.
+
+#### Falsy
+
+The following 6 values are considered `false` in a boolean context:
+
+- `false` 
+- `0`
+- `''` (empty string)
+- `null`
+- `undefined`
+- `NaN`
+
+#### Truthy
+
+A value is “truthy” if it is not “falsy.” 
+
+The following values (among many others) are considered `true` in a boolean context:
+
+- `true`
+- `"hi"`
+- `12`
+- `-1`
+- [] (empty array)
+- {} (empty object)
+
+### `for` loops
+
+Syntax:
+
+```
+for ([initialization]; [condition]; [final-expression])
+   statement
+```
+
+```
+// Log the numbers 1 through 10
+for (var i = 1; i <= 10; i++) {
+   console.log( i );
+}
+```
+
+[`for` reference on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+
+### `for` loops: Arrays
+
+A common use case for `for` loops is looping through array values:
+
+```
+var scores = [89, 98, 92, 69, 87, 53];
+for (var i = 0; i < scores.length; i++) {
+   console.log( scores[i] );
+}
+```
+
+### Arrays
+
+An array is an ordered set of numerically-indexed values.
+
+Arrays can be created using the global `Array` function (not recommended) or by
+using the [Array literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Array_literals): `[]`
+
+```
+var empty = [];
+var scores = [88, 75, 84, 100, 77, 105, 86];
+var books = ["To Kill a Mockingbird", "Prince Caspian", "The Hitchhiker’s Guide to the Galaxy"]
+```
+
+Array values can accessed or assigned by a numeric index
+
+```
+console.log( books[0] );  // => "To Kill a Mockingbird"
+books[0] = "Fellowship of the Ring";
+console.log( books[0] );  // => "Fellowship of the Ring"
+```
+
+[Introduction to Arrays on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections)
+
+#### Array methods: push
+
+`push()` adds one or more elements to the end of an array and returns the resulting length of the array.
+
+```
+var myArray = ["1", "2"]
+myArray.push("3"); // myArray is now ["1", "2", "3"]
+```
+
+#### Array methods: sort
+
+`sort([sortFunction])` sorts the elements of an array.
+
+```
+var myArray = ["Wind", "Rain", "Fire"];
+myArray.sort(); 
+// sorts the array so that myArray = [ "Fire", "Rain", "Wind" ]
+```
+
+`sort()` can also take a callback function to determine how array elements are 
+compared. The function compares two values and returns one of three values:
+
+- if a is **less than** b by the sorting system, return `-1` (or any negative 
+  number)
+- if a is **greater than** b by the sorting system, return `1` (or any positive
+  number)
+- if a and b are considered **equivalent**, return `0`.
+
+For instance, the following will sort by the last letter of a string:
+
+```
+var sortFn = function(a, b){
+  if (a[a.length - 1] < b[b.length - 1]) return -1;
+  if (a[a.length - 1] > b[b.length - 1]) return 1;
+  if (a[a.length - 1] == b[b.length - 1]) return 0;
+}
+myArray.sort(sortFn); 
+// sorts the array so that myArray = ["Wind","Fire","Rain"]
+```
+
+#### Array methods: indexOf
+
+`indexOf(searchElement[, fromIndex])` searches the array for `searchElement` and
+returns the index of the first match.
+
+```
+var a = ['a', 'b', 'a', 'b', 'a'];
+console.log(a.indexOf('b')); // logs 1
+// Now try again, starting from after the last match
+console.log(a.indexOf('b', 2)); // logs 3
+console.log(a.indexOf('z')); // logs -1, because 'z' was not found
+```
+
+### Array methods: forEach
+
+`forEach(callback[, thisObject])` executes `callback` on every array item.
+
+```
+var a = ['a', 'b', 'c'];
+// log each item in the array
+a.forEach(function(element) {
+  console.log(element);
+}); 
+```
+
+#### Array methods: map
+
+`map(callback[, thisObject])` returns a new array of the return value from 
+executing `callback` on every array item.
+
+```
+var a1 = ['a', 'b', 'c'];
+var a2 = a1.map(function(item) { return item.toUpperCase(); });
+console.log(a2); // logs A,B,C
+```
+
+#### Array methods: filter
+
+`filter(callback[, thisObject])` returns a new array containing the items for 
+which `callback` returned `true`.
+
+```
+var a1 = ['a', 10, 'b', 20, 'c', 30];
+var a2 = a1.filter(function(item) {
+  return typeof item == 'number';
+});
+console.log(a2); // logs 10,20,30
+```
+
+### Objects
+
+Objects are lists of values similar to arrays, except values are identified by keys instead of integers.
+
+Here is an example:
+
+```
+var foodPreferences = {
+  pizza: 'yum',
+  salad: 'gross'
+};
+```
+
+You can access and manipulate object properties –– the keys and values that an object contains –– using a method very similar to arrays.
+
+```
+console.log(foodPreferences['pizza']);
+```
+
+The above code will print the string `'yum'` to the terminal.
+
+Alternately, you can use **dot notation** to get identical results:
+
+```
+foodPreferences.pizza;
+
+foodPreferences['pizza'];
+```
+
+The two lines of code above will both return `yummy`.
+
+### Functions
+
+A function is a block of code that takes input, processes that input, and then produces output.
+
+```
+function example (x) {
+  return x * 2;
+}
+```
+
+We can **call** that function like this to get the number 10:
+
+```
+example(5);
+```
+
+### Function Arguments
+
+A function can be declared to receive any number of arguments. Arguments can be from any type. An argument could be a string, a number, an array, an object and even another function.
+
+```js
+function example (firstArg, secondArg) {
+  console.log(firstArg, secondArg);
+}
+```
+
+We can **call** that function with two arguments like this:
+
+```js
+example('hello', 'world');
+```
+
+### Methods
+
+A function that is a property of an object is known as a **method**. Methods can refer to their parent object by using the keyword `this`.
+
+```
+var student = {
+  name: "Ben",
+  speak: function() {
+    console.log(this.name);
+  }
+};
+
+student.speak();
+// => "Ben"
+```
+
+### Constructors
+
+// TODO
+
+### Prototype
+
+// TODO
+
+---
+
 ## HyperText Transfer Protocol
 
 <abbr title="HyperText Transfer Protocol">HTTP</abbr> is an *application level* protocol for communication between a user-agent (typically a browser) and a server. From the [HTTP 1.1 Specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1.4):

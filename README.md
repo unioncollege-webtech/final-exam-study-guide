@@ -47,6 +47,16 @@ The DELETE method requests that the origin server delete the resource identified
 
 Specified in [RFC 5789](http://tools.ietf.org/html/rfc5789), the PATCH method requests that a set of changes described in the request entity be applied to the resource identified by the Request-URI.
 
+#### Safe and Idempotent Methods
+
+##### Safe Methods
+
+GET and HEAD methods are considered "safe", meaning they SHOULD NOT have the significance of taking an action other than retrieval. GET and HEAD requests should not alter the resource being requested.
+
+##### Idempotent Methods
+
+The methods GET, HEAD, PUT and DELETE are considered "idempotent", meaning multiple identical requests for the same resource should have the same side-effects as a single request for that resource. POST methods are NOT expected to be idempotent.
+
 
 ### [HTTP Status Codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10)
 

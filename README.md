@@ -49,6 +49,8 @@ var singleQuoted = 'This uses single quotes';
 var singleChar = 'a';
 ```
 
+[string literal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#String_literals
+
 ### String Concatenation
 
 The [Addition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Addition)

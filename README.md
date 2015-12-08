@@ -87,25 +87,34 @@ var pi = 3.14159;
 JavaScript defines several arithmetic operators which take numerical values (either literals or variables) as their operands and return a single numerical value.
 
 - `+` Addition operator
+
   ```
   3 + 4 // => 7
   ```
+
 - `-` Subtraction operator
+
   ```
   3 - 4 // => -1
   ```
+
 - `*` Multiplication operator
+
   ```
   3 * 4 // => 12
   ```
 - `/` Division operator
+
   ```
   3 / 4 // => 0.75
   ```
+
 - `%` Remainder operator
+
   ```
   4 % 3 // => 1
   ```
+
 ### Assignment Operators
 
 - `=` Assignment operator: assigns a value to its left operand based on the value of its right operand.
@@ -134,11 +143,14 @@ on MDN
 
 - `++` Increment operator: increase a reference’s value by one and return the new value
   - Postfix: Return the original value **before** incrementing
+
     ```
     var a = 3;
     var b = a++;     // b: 3, a: 4
     ```
+
   - Prefix: Return the new (incremented) value
+
     ```
     var a = 3;
     var b = ++a;     // b: 4, a: 4
@@ -148,11 +160,14 @@ on MDN
 
 - `--` Decrement operator: decrease a reference’s value by one and return the new value
   - Postfix: Return the original value **before** decrementing
+
     ```
     var a = 3;
     var b = a--;     // b: 3, a: 2
     ```
+
   - Prefix: Return the new (decremented) value
+
     ```
     var a = 3;
     var b = --a;     // b: 2, a: 2

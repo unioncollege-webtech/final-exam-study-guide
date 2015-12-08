@@ -6,7 +6,7 @@ The final exam in Web Technologies covers basic JavaScript language features as 
 
 <abbr title="HyperText Transfer Protocol">HTTP</abbr> is an *application level* protocol for communication between a user-agent (typically a browser) and a server. From the [HTTP 1.1 Specification](http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1.4):
 
-> The HTTP protocol is a request/response protocol. A client sends a request to the server in the form of a [request method](#http-methods), URI, and protocol version, followed by a MIME-like message containing request modifiers, client information, and possible body content over a connection with a server. The server responds with a status line, including the message's protocol version and a [success or error code](#http-status-codes), followed by a MIME-like message containing server information, entity metainformation, and possible entity-body content. The relationship between HTTP and MIME is described in appendix 19.4.
+> The HTTP protocol is a request/response protocol. A client sends a request to the server in the form of a [request method](#http-methods), URI, and protocol version, followed by a MIME-like message containing request modifiers, client information, and possible body content over a connection with a server. The server responds with a status line, including the message's protocol version and a [success or error code](#http-status-codes), followed by a MIME-like message containing server information, entity metainformation, and possible entity-body content.
 
 
 ### HTTP Methods

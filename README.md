@@ -603,11 +603,44 @@ When the code `new Foo(...)` is executed, the following things happen:
 2. The constructor function Foo is called with the specified arguments, and with `this` bound to the newly created object. `new Foo` is equivalent to `new Foo()`, i.e. if no argument list is specified, Foo is called without arguments.
 3. The object _returned_ by the constructor function becomes the result of the whole `new` expression. If the constructor function _doesn't_ explicitly return an object, the object created in step 1 is used instead. (Normally constructors don't return a value, but they can choose to do so if they want to override the normal object creation process.)
 
+```js
+// Constructor function
+function Car(color) {
+  this.color = color
+}
+Car.prototype.drive = function () {
+  console.log("The " + this.color + " car is driving")
+}
+
+// New instance of Car()
+var car1 = new Car('black');
+var car2 = new Car('red'); 
+
+console.log(car1.color);   // "black"
+console.log(car2.color);   // "red"
+
+car1.drive();    // "The black car is driving"
+```
+
 [new operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
 
 ### Prototype
 
 You can add a shared property to all instances of an object type by using the Function.prototype property. This defines a property that is shared by all objects created with that function, rather than by just one instance of the object type. The following code adds a color property with value null to all objects of type car, and then overwrites that value with the string "black" only in the instance object car1. For more information, see [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
+
+```js
+// Constructor function
+function Car(color) {
+  this.color = color
+}
+Car.prototype.drive = function () {
+  console.log("The " + this.color + " car is driving")
+}
+
+// New instance of Car()
+var car1 = new Car('black');
+car1.drive();    // "The black car is driving"
+```
 
 ---
 

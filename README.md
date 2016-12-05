@@ -626,7 +626,7 @@ car1.drive();    // "The black car is driving"
 
 ### Prototype
 
-You can add a shared property to all instances of an object type by using the Function.prototype property. This defines a property that is shared by all objects created with that function, rather than by just one instance of the object type. The following code adds a color property with value null to all objects of type car, and then overwrites that value with the string "black" only in the instance object car1. For more information, see [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
+You can add a shared property to all instances of an object type by using the function's `.prototype` property. The function's prototype property is shared by **all** objects created with that function, rather than by just one instance of the object type. The following code adds a `.drive()` method to all `Car` instances. The `this` binding inside a prototype method refers to instance the method is being called for. For more information, see [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
 
 ```js
 // Constructor function

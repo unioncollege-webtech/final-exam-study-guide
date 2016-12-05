@@ -590,7 +590,7 @@ student.speak();
 
 ### Constructor Functions
 
-Creating a user-defined object requires two steps:
+JavaScript uses functions (not classes) to create user-defined objects. This requires two steps:
 
 - Define the object type by writing a function.
 - Create an instance of the object with new.

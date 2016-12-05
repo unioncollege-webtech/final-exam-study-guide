@@ -608,9 +608,6 @@ When the code `new Foo(...)` is executed, the following things happen:
 function Car(color) {
   this.color = color
 }
-Car.prototype.drive = function () {
-  console.log("The " + this.color + " car is driving")
-}
 
 // New instance of Car()
 var car1 = new Car('black');
@@ -618,8 +615,6 @@ var car2 = new Car('red');
 
 console.log(car1.color);   // "black"
 console.log(car2.color);   // "red"
-
-car1.drive();    // "The black car is driving"
 ```
 
 [new operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)

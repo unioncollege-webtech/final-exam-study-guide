@@ -588,13 +588,26 @@ student.speak();
 // => "Ben"
 ```
 
-### Constructors
+### Constructor Functions
 
-// TODO
+Creating a user-defined object requires two steps:
+
+- Define the object type by writing a function.
+- Create an instance of the object with new.
+
+To define an object type, create a [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#Defining_functions) for the object type that specifies its name and properties.
+
+When the code `new Foo(...)` is executed, the following things happen:
+
+1. A new object is created, inheriting from `Foo.prototype`.
+2. The constructor function Foo is called with the specified arguments, and with `this` bound to the newly created object. `new Foo` is equivalent to `new Foo()`, i.e. if no argument list is specified, Foo is called without arguments.
+3. The object _returned_ by the constructor function becomes the result of the whole `new` expression. If the constructor function _doesn't_ explicitly return an object, the object created in step 1 is used instead. (Normally constructors don't return a value, but they can choose to do so if they want to override the normal object creation process.)
+
+[new operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
 
 ### Prototype
 
-// TODO
+You can add a shared property to all instances of an object type by using the Function.prototype property. This defines a property that is shared by all objects created with that function, rather than by just one instance of the object type. The following code adds a color property with value null to all objects of type car, and then overwrites that value with the string "black" only in the instance object car1. For more information, see [Object prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
 
 ---
 
@@ -611,7 +624,11 @@ HTTP defines several **Methods** which indicate the action to take for the speci
 
 #### [OPTIONS](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2)
 
-The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. This method allows the client to determine the options and/or requirements associated with a resource, or the capabilities of a server, without implying a resource action or initiating a resource retrieval.
+The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. 
+
+
+
+method allows the client to determine the options and/or requirements associated with a resource, or the capabilities of a server, without implying a resource action or initiating a resource retrieval.
 
 #### [GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3)
 
